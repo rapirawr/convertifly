@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    scrollbar-width: none;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Ubah arah flex ke kolom */
+    height: auto; /* Ubah height agar bisa menampung semua konten */
+    margin: 0;
+}
+
+.home {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: wheat;
+    margin-top: 30px;
+    border-radius: 8px;
+    width: 90%; }
+
+h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 0.5em;
+}
+
+p {
+    color: #555;
+    font-size: 1.1em;
+    margin-bottom: 2em;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.converter-option {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    text-align: center;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+.converter-option:hover {
+    box-shadow: -11px 18px 28px 4px rgba(0,0,0,0.75);
+}
+
+h2 {
+    color: #444;
+    font-size: 1.5em;
+}
+
+a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all .5s;
+}
+
+a:hover {
+    background-color: #0056b3;
+    font-size: 17px;
+    box-shadow: -11px 18px 28px 4px rgba(0,0,0,0.15);
+}
+
+.benefits {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: wheat;
+    margin-top: 30px;
+    border-radius: 8px;
+    width: 90%; 
+}
+
+.benefits h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 1em;
+}
+
+.benefits ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.benefits li {
+    color: #555;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+i {
+    font-size: 2rem;
+    color: #0056b3;
+}
+
+.support {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: wheat;
+    margin-top: 30px;
+    border-radius: 8px;
+    width: 90%; 
+}
