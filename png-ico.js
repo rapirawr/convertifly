@@ -12,24 +12,20 @@ function convertPngToIco() {
     const reader = new FileReader();
 
     reader.onload = function(event) {
-        const convertedIcoData = event.target.result; // Placeholder untuk hasil konversi
+        const convertedIcoData = event.target.result; 
 
-        // Ambil nama file asli dan buat nama file ICO
-        const originalFileName = file.name.replace(/\.[^/.]+$/, ""); // Menghapus ekstensi
-        const icoFileName = `${originalFileName}.ico`; // Tambahkan ekstensi .ico
+        const originalFileName = file.name.replace(/\.[^/.]+$/, ""); 
+        const icoFileName = `${originalFileName}.ico`; 
 
-        // Simpan data ICO ke dalam objek Blob untuk unduhan
         const blob = new Blob([convertedIcoData], { type: 'image/x-icon' });
         const url = URL.createObjectURL(blob);
 
-        // Update href downloadIco dan nama file
         downloadIco.href = url; 
-        downloadIco.download = icoFileName; // Ganti nama file yang diunduh
-        downloadIco.style.display = "block"; // Tampilkan tautan unduhan
+        downloadIco.download = icoFileName; 
+        downloadIco.style.display = "block"; 
 
-        // Tampilkan downloadLink
         downloadLink.style.display = "block"; 
     };
 
-    reader.readAsArrayBuffer(file); // Menggunakan ArrayBuffer untuk contoh
+    reader.readAsArrayBuffer(file);
 }

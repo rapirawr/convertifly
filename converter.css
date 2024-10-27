@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
 body {
     font-family: "Poppins", sans-serif;
@@ -7,44 +7,43 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(135deg, #f0f0f5, #e1e5eb);
+    background: linear-gradient(135deg, #2c2f33, #23272a);
+    color: #e0e0e0;
 }
 
 .converter-page {
     text-align: center;
-    background: #ffffff;
+    background: #2c2f33;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
     width: 360px;
     transition: transform 0.2s ease-in-out;
 }
 
-
-
 h1 {
     font-size: 24px;
-    color: #333;
+    color: #ffffff;
     margin-bottom: 10px;
     font-weight: bold;
 }
 
 p {
-    color: #666;
+    color: #b3b3b3;
     font-size: 15px;
     margin-bottom: 20px;
     line-height: 1.4;
 }
 
 a {
-    color: #007bff;
+    color: #7289da;
     text-decoration: none;
     font-weight: bold;
 }
 
 .underline {
     position: relative;
-    color: #007bff;
+    color: #7289da;
     text-decoration: none;
 }
 
@@ -55,7 +54,7 @@ a {
     bottom: 0;
     width: 100%;
     height: 1px;
-    background-color: #007bff;
+    background-color: #7289da;
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s ease;
@@ -66,15 +65,14 @@ a {
     transform-origin: right;
 }
 
-
 input[type="file"] {
-    display: none; /* Menyembunyikan input file asli */
+    display: none;
 }
 
 button {
     padding: 10px 24px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #7289da;
+    color: #ffffff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -84,27 +82,27 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #5b6eae;
     transform: scale(1.05);
 }
 
 button:active {
-    background-color: #004494;
+    background-color: #3f4e7f;
 }
 
-.dwn {  
+.dwn {
     margin-top: 20px;
     animation: fadeIn 0.5s ease-in-out;
 }
 
 .dwn p {
-    color: #28a745;
+    color: #4caf50;
     font-size: 16px;
     font-weight: bold;
 }
 
 .dwn a {
-    color: #007bff;
+    color: #7289da;
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
@@ -112,38 +110,47 @@ button:active {
 }
 
 .dwn a:hover {
-    color: #0056b3;
+    color: #5b6eae;
     text-decoration: underline;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .file {
     text-align: center;
     margin: 20px 0;
-    border: 1px dashed #0056b3;
+    border: 1px dashed #7289da;
     border-radius: 8px;
     padding: 20px;
 }
 
 .file-label {
     display: inline-block;
-    background-color: #f0f0f5;
-    border: 2px dashed #ddd;
+    background-color: #2c2f33;
+    border: 2px dashed #5b6eae;
     border-radius: 8px;
     padding: 20px;
     cursor: pointer;
     transition: background-color 0.2s;
+    color: #e0e0e0;
 }
 
 .file-label:hover {
-    background-color: #e1e5eb;
+    background-color: #23272a;
 }
 
 #f {
     font-size: 5rem;
     padding: 20px;
+    color: #7289da;
 }

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Profile</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <button id="redirect-button" class="button" data-text="Awesome">
+                <span class="actual-text">&nbsp;Convertifly&nbsp;</span>
+                <span aria-hidden="true" class="hover-text">&nbsp;Convertifly&nbsp;</span>
+            </button>
+            <ul class="navbar-menu">
+                <li><a href="index.html" class="text-animate"><i class="fas fa-home"></i></a></li>
+                <li><a href="profile.html" class="text-animate"><i class="fas fa-user"></i></a></li>
+                <li><a href="#settings" class="text-animate"><i class="fa-solid fa-gear fa-spin"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="profile">
+        <div class="profile-container">
+            <a href="index.html" class="underline"><i class="fa-solid fa-arrow-left"></i> Kembali ke home</a>
+            <h1>Profile <i class="fa-solid fa-user-circle"></i></h1>
+            <div class="profile-content">
+                <div class="profile-details">
+                    <p><strong>Nama:</strong> <span id="profileNama"></span></p>
+                    <p><strong>Username:</strong> <span id="profileUsername"></span></p>
+                    <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+                    <p><strong>Password:</strong> <span id="profilePassword">●●●●</span> <i id="togglePassword" class="fas fa-eye" onclick="togglePasswordVisibility()"></i></p>
+                    <p><strong>Tanggal Lahir:</strong> <span id="profileTanggalLahir"></span></p>
+                    <button id="lo" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+                    <button id="del" onclick="hapusAkun()"><i class="fas fa-trash"></i> Hapus Akun</button> 
+                </div>               
+            </div>
+        </div>
+    </div>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const nama = localStorage.getItem("nama");
+    const username = localStorage.getItem("username");
+    const email = localStorage.getItem("email");
+    const tanggalLahir = localStorage.getItem("tanggal_lahir");
+    const password = localStorage.getItem("password");
+
+    if (!username) {
+        alert("Silakan login terlebih dahulu.");
+        window.location.href = "login.html";
+    }
+
+    document.getElementById("profileNama").textContent = nama;
+    document.getElementById("profileUsername").textContent = username;
+    document.getElementById("profileEmail").textContent = email;
+    document.getElementById("profilePassword").setAttribute("data-password", password);
+    
+    document.getElementById("profilePassword").textContent = "●".repeat(password.length);
+    document.getElementById("profileTanggalLahir").textContent = tanggalLahir;
+});
+
+function togglePasswordVisibility() {
+    const passwordSpan = document.getElementById("profilePassword");
+    const toggleIcon = document.getElementById("togglePassword");
+    const actualPassword = passwordSpan.getAttribute("data-password");
+
+    if (passwordSpan.textContent.includes("●")) {
+        passwordSpan.textContent = actualPassword; 
+        toggleIcon.classList.remove("fa-eye");
+        toggleIcon.classList.add("fa-eye-slash");
+    } else {
+        passwordSpan.textContent = "●".repeat(actualPassword.length);
+        toggleIcon.classList.remove("fa-eye-slash");
+        toggleIcon.classList.add("fa-eye");
+    }
+}
+
+
+        function logout() {
+        if (confirm("Apakah kamu yakin ingin logout?")) {
+            localStorage.removeItem("isLoggedIn");
+            alert("Logout berhasil.");
+            window.location.href = "login.html";
+        }
+    }
+
+        function hapusAkun() {
+            if (confirm("Apakah kamu yakin ingin menghapus akun? Semua data akan hilang.")) {
+                localStorage.clear();
+                alert("Akun berhasil dihapus.");
+                window.location.href = "login.html";
+            }
+        }
+    </script>
+</body>
+</html>

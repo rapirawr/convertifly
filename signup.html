@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Sign Up</title>
+</head>
+<body>
+    <div class="login">
+        <div class="login-container">
+            <h1>Form Sign Up <i class="fa-solid fa-circle-user"></i></h1>
+            <form id="signupForm">
+                <div>
+                    <label for="nama">Nama</label>
+                    <input type="text" name="nama" id="nama" placeholder="Masukan nama" required>
+                </div>
+                <div>
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="signupUsername" placeholder="Masukan username" required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Masukan email" required>
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="signupPassword" placeholder="Masukan password" required>
+                </div>
+                <div>
+                    <label for="tanggal_lahir">Tanggal Lahir</label>
+                    <input type="date" name="tanggal_lahir" id="tanggal_lahir" required>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Sudah punya akun? <a href="login.html">Login</a></p>
+        </div>
+        <div class="image-half">
+            <img src="imagebg.jpeg" alt="Background Image" id="background-image">
+            <div class="shadow"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const nama = document.getElementById("nama").value;
+            const username = document.getElementById("signupUsername").value;
+            const password = document.getElementById("signupPassword").value;
+            const email = document.getElementById("email").value;
+            const tanggalLahir = document.getElementById("tanggal_lahir").value;
+
+            localStorage.setItem("nama", nama);
+            localStorage.setItem("username", username);
+            localStorage.setItem("password", password);
+            localStorage.setItem("email", email);
+            localStorage.setItem("tanggal_lahir", tanggalLahir);
+
+            alert("Akun berhasil dibuat! Silakan login.");
+            window.location.href = "login.html";
+        });
+    </script>
+</body>
+</html>

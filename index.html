@@ -9,41 +9,65 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="navbar-container">
+                <button id="redirect-button" class="button" data-text="Awesome">
+                    <span class="actual-text">&nbsp;Convertifly&nbsp;</span>
+                    <span aria-hidden="true" class="hover-text">&nbsp;Convertifly&nbsp;</span>
+                </button>
+            <ul class="navbar-menu">
+                <li><a href="index.html" class="text-animate"><i class="fas fa-home"></i></a></li>
+                <li><a href="profile.html" class="text-animate"><i class="fas fa-user"></i></a></li>
+                <li><a href="#settings" class="text-animate"><i class="fa-solid fa-gear fa-spin"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+    
     <div class="home">
         <h1>Selamat Datang di <span id="c">C</span>onvertifly</h1>
-        <p>Konversi file Anda dengan mudah dan cepat menggunakan konverter online kami!</p>
+        <p>Konversi file  Anda dengan mudah dan cepat menggunakan konverter online kami!</p>
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=Chokokutai&family=Inconsolata:wght@200..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
             
-            #c {
-                color: #007bff;
-                font-family: "Chokokutai", sans-serif;
-            }
+            #c  {
+            --border-right: 6px;
+            --text-stroke-color: rgba(255, 255, 255, 0.6);
+            --animation-color: #7289da;
+            --fs-size: 1.5em;
+            letter-spacing: 3px;
+            text-decoration: none;
+            font-size: var(--fs-size);
+            font-family: "Arial";
+            position: reltaive;
+            color: transparent;
+            -webkit-text-stroke: 1px var(--text-stroke-color);
+        }
         </style>
 
         <div class="container">
             <div class="converter-option">
                 <h2>PNG ke ICO</h2>
                 <p>Konversi gambar PNG ke format ICO untuk ikon dan lainnya.</p>
-                <a href="png-to-ico.html">Konversi Sekarang</a>
+                <div class="tooltip-container">
+                    <button id="b" onclick="location.href='png-to-ico.html'">Konversi Sekarang</button>
+                </div>
             </div>
 
             <div class="converter-option">
                 <h2>ICO ke PNG</h2>
                 <p>Konversi ikon ICO ke format PNG untuk kebutuhan Anda.</p>
-                <a href="ico-to-png.html">Konversi Sekarang</a>
+                <button id="b" onclick="location.href='ico-to-png.html'">Konversi Sekarang</button>
             </div>
 
             <div class="converter-option">
                 <h2>WEBP ke PNG</h2>
                 <p>Konversi animasi atau gambar WEBP ke format PNG.</p>
-                <a href="webp-to-png.html">Konversi Sekarang</a>
+                <button id="b" onclick="location.href='webp-to-png.html'">Konversi Sekarang</button>
             </div>
 
             <div class="converter-option">
                 <h2>JPG ke PNG</h2>
                 <p>Konversi gambar JPG ke format PNG untuk kualitas yang baik.</p>
-                <a href="jpg-to-png.html">Konversi Sekarang</a>
+                <button id="b" onclick="location.href='jpg-to-png.html'">Konversi Sekarang</button>
             </div>
         </div>
     </div>
@@ -53,6 +77,7 @@
         <div class="container">
             <div class="converter-option">
                 <h3>Proses Konversi Cepat</h3>
+                <br>
                 <br>
                 <i class="fas fa-fast-forward"></i>
                 <p>Konversi file dengan waktu yang singkat dan efisien.</p>
@@ -78,7 +103,7 @@
                 <br>
                 <br>
                 <i class="fas fa-money-bill-wave"></i>
-                <p>Semua fitur dapat diakses secara gratis tanpa biaya .</p>
+                <p>Semua fitur dapat diakses secara gratis tanpa biaya.</p>
             </div>
         </div>
     </section>
@@ -90,22 +115,23 @@
                 <br>
                 <i class="fas fa-money-bill-wave"></i>
                 <p>Support Developer dengan Saweria.</p>
-                <a href="https://saweria.co/rapikeren" target="_blank">Donate</a>
+                <button id="s" onclick="window.open('https://saweria.co/rapikeren')">Donate</button>
             </div>
             <div class="converter-option">
                 <h3>Email</h3>
                 <br>
                 <i class="fa-solid fa-envelope"></i>
                 <p>Contact Developer dengan Email.</p>
-                <a href="mailto:rabdillahf09@gmail.com" target="_blank">Email</a>
+                <button id="s" onclick="location.href='mailto:rabdillahf09@gmail.com'">Email</button>
             </div>
             <div class="converter-option">
                 <h3>Github</h3>
                 <br>
                 <i class="fa-brands fa-github"></i>
                 <p>Follow Developer di Github.</p>
-                <a href="https://github.com/rapirawr" target="_blank">Github</a>
+                <button id="s" onclick="window.open('https://github.com/rapirawr')">Github</button>
             </div>
+        </div>
     </section>
 </body>
 </html>

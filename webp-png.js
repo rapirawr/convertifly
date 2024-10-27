@@ -3,7 +3,7 @@ let originalFileName = "";
 function showUploadSuccess() {
     const fileInput = document.getElementById("webpFileInput");
     const file = fileInput.files[0];
-    originalFileName = file.name.replace(/\.[^/.]+$/, ""); // Menghapus ekstensi dari nama file
+    originalFileName = file.name.replace(/\.[^/.]+$/, ""); 
     const successMsg = document.getElementById("uploadSuccessMsg");
     successMsg.textContent = `${file.name} sukses di-upload!`;
     successMsg.style.display = "block";
@@ -36,7 +36,7 @@ function convertWebpToPng() {
             canvas.toBlob(function (blob) {
                 const url = URL.createObjectURL(blob);
                 downloadPng.href = url;
-                downloadPng.download = `${originalFileName}.png`; // Mengganti ekstensi dengan .png
+                downloadPng.download = `${originalFileName}.png`; 
                 pngDownloadLink.style.display = "block";
             }, "image/png");
         };
