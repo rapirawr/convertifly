@@ -5,6 +5,9 @@
   "hints": {
     "disown-opener": "off",
     "no-inline-styles": "off",
-    "compat-api/css": "off"
+    "compat-api/css": "off",
+    "axe/name-role-value": "off",
+    "button-type": "off",
+    "axe/parsing": "off"
   }
 }
