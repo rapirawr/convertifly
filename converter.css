@@ -132,6 +132,7 @@ button:active {
     border: 1px dashed #7289da;
     border-radius: 8px;
     padding: 20px;
+    cursor: pointer;
 }
 
 .file-label {

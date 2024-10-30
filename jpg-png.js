@@ -1,20 +1,20 @@
 let originalFileName = "";
 
 function showUploadSuccess() {
-    const fileInput = document.getElementById("webpFileInput");
+    const fileInput = document.getElementById("jpgFileInput");
     const fileName = fileInput.files[0].name;
     const fileLabel = document.querySelector(".file-label");
     fileLabel.textContent = `${fileName}`;
     originalFileName = fileName.replace(/\.[^/.]+$/, "");
 }
 
-function convertWebpToPng() {
-    const fileInput = document.getElementById("webpFileInput");
-    const pngDownloadLink = document.getElementById("pngDownloadLink");
+function convertJpgToPng() {
+    const fileInput = document.getElementById("jpgFileInput");
+    const downloadLink = document.getElementById("downloadLink");
     const downloadPng = document.getElementById("downloadPng");
 
     if (fileInput.files.length === 0) {
-        alert("Please select a WEBP file first.");
+        alert("Please select a JPG file first.");
         return;
     }
 
@@ -36,9 +36,9 @@ function convertWebpToPng() {
                 const url = URL.createObjectURL(blob);
                 downloadPng.href = url;
                 downloadPng.download = `${originalFileName}.png`;
-                pngDownloadLink.style.display = "block";
+                downloadLink.style.display = "block";
 
-                addToHistory(`${originalFileName}.webp -> ${originalFileName}.png`);
+                addToHistory(`${originalFileName}.jpg -> ${originalFileName}.png`);
             }, "image/png");
         };
     };
@@ -57,7 +57,6 @@ function addToHistory(fileName) {
     history.push(conversionEntry);
     localStorage.setItem('conversionHistory', JSON.stringify(history));
 }
-
 
 document.addEventListener("DOMContentLoaded", function() {
     const historyTable = document.querySelector(".history");

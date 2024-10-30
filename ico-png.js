@@ -1,20 +1,20 @@
 let originalFileName = "";
 
 function showUploadSuccess() {
-    const fileInput = document.getElementById("webpFileInput");
+    const fileInput = document.getElementById("icoFileInput");
     const fileName = fileInput.files[0].name;
     const fileLabel = document.querySelector(".file-label");
-    fileLabel.textContent = `${fileName}`;
+    fileLabel.textContent = fileName;
     originalFileName = fileName.replace(/\.[^/.]+$/, "");
 }
 
-function convertWebpToPng() {
-    const fileInput = document.getElementById("webpFileInput");
-    const pngDownloadLink = document.getElementById("pngDownloadLink");
+function convertIcoToPng() {
+    const fileInput = document.getElementById("icoFileInput");
+    const downloadLink = document.getElementById("downloadLink");
     const downloadPng = document.getElementById("downloadPng");
 
     if (fileInput.files.length === 0) {
-        alert("Please select a WEBP file first.");
+        alert("Please select an ICO file first.");
         return;
     }
 
@@ -36,9 +36,10 @@ function convertWebpToPng() {
                 const url = URL.createObjectURL(blob);
                 downloadPng.href = url;
                 downloadPng.download = `${originalFileName}.png`;
-                pngDownloadLink.style.display = "block";
+                downloadLink.style.display = "block";
+                downloadPng.style.display = "block";
 
-                addToHistory(`${originalFileName}.webp -> ${originalFileName}.png`);
+                addToHistory(`${originalFileName}.ico -> ${originalFileName}.png`);
             }, "image/png");
         };
     };
@@ -58,20 +59,19 @@ function addToHistory(fileName) {
     localStorage.setItem('conversionHistory', JSON.stringify(history));
 }
 
-
 document.addEventListener("DOMContentLoaded", function() {
     const historyTable = document.querySelector(".history");
-    const history = JSON.parse(localStorage.getItem("conversionHistory")) || [];
+    let history = JSON.parse(localStorage.getItem("conversionHistory")) || [];
 
-    history.forEach((item, index) => {
-        const row = document.createElement("tr");
-        const cellIndex = document.createElement("td");
-        const cellFile = document.createElement("td");
-        const cellDate = document.createElement("td");
+    history.forEach((entry, index) => {
+        let row = document.createElement("tr");
+        let cellIndex = document.createElement("td");
+        let cellFile = document.createElement("td");
+        let cellDate = document.createElement("td");
 
         cellIndex.textContent = index + 1;
-        cellFile.textContent = item.fileName;
-        cellDate.textContent = item.date;
+        cellFile.textContent = entry.fileName;
+        cellDate.textContent = entry.date; 
 
         row.appendChild(cellIndex);
         row.appendChild(cellFile);
