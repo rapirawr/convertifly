@@ -1,26 +1,29 @@
+let originalFileName = "";
+
 function showUploadSuccess() {
-    const fileInput = document.getElementById("pngFileInput");
+    const fileInput = document.getElementById("jpgFileInput");
     const fileName = fileInput.files[0].name;
     const fileLabel = document.querySelector(".file-label");
     fileLabel.textContent = `${fileName}`;
+    originalFileName = fileName.replace(/\.[^/.]+$/, "");
 }
 
-function convertPngToIco() {
-    const fileInput = document.getElementById('pngFileInput');
-    const downloadLink = document.getElementById('downloadLink');
-    const downloadIco = document.getElementById('downloadIco');
+function convertPngToJpg() {
+    const fileInput = document.getElementById("jpgFileInput");
+    const downloadLink = document.getElementById("downloadLink");
+    const downloadJpg = document.getElementById("downloadJpg");
 
     if (fileInput.files.length === 0) {
-        alert("Please select a PNG file to convert.");
+        alert("Please select a PNG file first.");
         return;
     }
 
     const file = fileInput.files[0];
     const reader = new FileReader();
 
-    reader.onload = function (event) {
+    reader.onload = function (e) {
         const img = new Image();
-        img.src = event.target.result;
+        img.src = e.target.result;
 
         img.onload = function () {
             const canvas = document.createElement("canvas");
@@ -30,17 +33,13 @@ function convertPngToIco() {
             ctx.drawImage(img, 0, 0);
 
             canvas.toBlob(function (blob) {
-                const originalFileName = file.name.replace(/\.[^/.]+$/, "");
-                const icoFileName = `${originalFileName}.ico`;
-
                 const url = URL.createObjectURL(blob);
-                downloadIco.href = url;
-                downloadIco.download = icoFileName;
-                downloadIco.style.display = "block";
+                downloadJpg.href = url;
+                downloadJpg.download = `${originalFileName}.jpg`;
                 downloadLink.style.display = "block";
 
-                addToHistory(`${originalFileName}.png -> ${icoFileName}`);
-            }, 'image/x-icon');
+                addToHistory(`${originalFileName}.png -> ${originalFileName}.jpg`);
+            }, "image/jpeg");
         };
     };
 
@@ -57,19 +56,6 @@ function addToHistory(fileName) {
 
     history.push(conversionEntry);
     localStorage.setItem('conversionHistory', JSON.stringify(history));
-}
-
-function dropHandler(event) {
-    event.preventDefault();
-    const dataTransfer = event.dataTransfer;
-    if (dataTransfer.files.length > 0) {
-        document.getElementById('pngFileInput').files = dataTransfer.files;
-        showUploadSuccess();
-    }
-}
-
-function dragOverHandler(event) {
-    event.preventDefault();
 }
 
 document.addEventListener("DOMContentLoaded", function() {

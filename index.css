@@ -19,7 +19,8 @@ body {
 
 .home,
 .benefits,
-.support {
+.support,
+.rating-and-comment {
     text-align: center;
     padding: 20px 15px;
     background-color: #3e3e3e;
@@ -62,6 +63,7 @@ p,
     transition: all .3s;
     cursor: pointer;
     color: #f1f1f1;
+    position: relative;
 }
 
 #b {
@@ -214,4 +216,77 @@ i {
 
 .navbar-menu i {
     font-size: 22px;
+}
+
+.label-ai {
+    position: absolute;
+    top: 5px; 
+    right: 60px; /* Jarak dari sisi kanan untuk label AI */
+    background-color: #e4c422; 
+    color: #333; 
+    padding: 5px 10px; 
+    border-radius: 5px;
+    font-size: 0.8em;
+}
+
+.label-beta {
+    position: absolute;
+    top: 5px; 
+    right: 5px;
+    background-color: #22e4e1; 
+    color: #333; 
+    padding: 5px 10px; 
+    border-radius: 5px;
+    font-size: 0.8em;
+}
+
+.label-vip {
+    position: absolute;
+    top: 5px; 
+    right: 5px;
+    background-color: #f6b00b; 
+    color: #333; 
+    padding: 5px 10px; 
+    border-radius: 5px;
+    font-size: 0.8em;
+}
+
+
+.label-new {
+    position: absolute;
+    top: 5px; 
+    right: 5px;
+    background-color: #22e4a7; 
+    color: #333; 
+    padding: 5px 10px; 
+    border-radius: 5px;
+    font-size: 0.8em;
+}
+
+.comment-box {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #7289da;
+    border-radius: 16px;
+    margin-top: 20px;
+}
+
+.comment {
+    background: rgb(44, 47, 51);
+    padding: 10px;
+    border-radius: 16px;
+    margin-bottom: 10px;
+    transition: background 0.3s;
+}
+
+.comment:hover {
+    background: #1b1a1a;
+    cursor: pointer;
+}
+
+.loading {
+    text-align: center;
+    margin: 20px 0;
+    display: none;
 }

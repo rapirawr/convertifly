@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <script src="conversionStats.js" defer></script>
 </head>
 <body>
     <nav class="navbar">
@@ -28,12 +27,9 @@
         <p>Konversi file Anda dengan mudah dan cepat menggunakan konverter online kami!</p>
         <style>
             #c {
-                --border-right: 6px;
                 --text-stroke-color: rgba(255, 255, 255, 0.6);
-                --animation-color: #7289da;
                 --fs-size: 1.5em;
                 letter-spacing: 3px;
-                text-decoration: none;
                 font-size: var(--fs-size);
                 font-family: "Arial";
                 color: transparent;
@@ -65,6 +61,22 @@
                 <p>Konversi gambar JPG ke format PNG untuk kualitas yang baik.</p>
                 <button id="b" onclick="location.href='jpg-to-png.html'">Konversi Sekarang</button>
             </div>
+
+            <div class="converter-option">
+                <h2>PNG ke JPG</h2>
+                <p>Konversi gambar PNG ke format JPG untuk kompresi file.</p>
+                <button id="b" onclick="location.href='png-to-jpg.html'">Konversi Sekarang</button>
+            </div>
+            <br>
+            <div class="converter-option">
+                <h2>Remove Background</h2>
+                <div class="ai-buttons">
+                    <span class="label-ai">AI</span>
+                    <span class="label-beta">Beta</span>
+                </div>
+                <p>Tools untuk remove background</p>
+                <button id="b" onclick="location.href='remove-background.html'">Konversi Sekarang</button>
+            </div>                            
         </div>
     </div>
 
@@ -99,7 +111,14 @@
             </div>
         </div>
     </section>
-    
+
+    <section class="rating-and-comment">
+        <h2>Komentar Pengguna</h2>
+        <div id="commentBox" class="comment-box"></div>
+    </section>
+
+    <script src="rating-comment.js"></script>
+        
     <section class="support">
         <h2>Support Developer</h2>
         <div class="container">
@@ -107,22 +126,21 @@
                 <h3>Saweria</h3>
                 <i class="fas fa-money-bill-wave"></i>
                 <p>Support Developer dengan Saweria.</p>
-                <button id="s" onclick="window.open('https://saweria.co/rapikeren')">Donate</button>
+                <button id="b" onclick="window.open('https://saweria.co/rapikeren')">Donate</button>
             </div>
             <div class="converter-option">
                 <h3>Email</h3>
-                <i class="fa-solid fa-envelope"></i>
+                <i class="fas fa-envelope"></i>
                 <p>Contact Developer dengan Email.</p>
-                <button id="s" onclick="location.href='mailto:rabdillahf09@gmail.com'">Email</button>
+                <button id="b" onclick="location.href='mailto:rabdillahf09@gmail.com'">Email</button>
             </div>
             <div class="converter-option">
                 <h3>Github</h3>
-                <i class="fa-brands fa-github"></i>
+                <i class="fab fa-github"></i>
                 <p>Follow Developer di Github.</p>
-                <button id="s" onclick="window.open('https://github.com/rapirawr')">Github</button>
+                <button id="b" onclick="window.open('https://github.com/rapirawr')">Github</button>
             </div>
         </div>
     </section>
-    <div id="conversion-stats"></div>
 </body>
 </html>

@@ -58,24 +58,26 @@ function addToHistory(fileName) {
     localStorage.setItem('conversionHistory', JSON.stringify(history));
 }
 
-
 document.addEventListener("DOMContentLoaded", function() {
-    const historyTable = document.querySelector(".history");
-    const history = JSON.parse(localStorage.getItem("conversionHistory")) || [];
+    const dropArea = document.getElementById("dropArea");
 
-    history.forEach((item, index) => {
-        const row = document.createElement("tr");
-        const cellIndex = document.createElement("td");
-        const cellFile = document.createElement("td");
-        const cellDate = document.createElement("td");
+    dropArea.addEventListener("dragover", (event) => {
+        event.preventDefault();
+        dropArea.classList.add("drag-over");
+    });
 
-        cellIndex.textContent = index + 1;
-        cellFile.textContent = item.fileName;
-        cellDate.textContent = item.date;
+    dropArea.addEventListener("dragleave", () => {
+        dropArea.classList.remove("drag-over");
+    });
 
-        row.appendChild(cellIndex);
-        row.appendChild(cellFile);
-        row.appendChild(cellDate);
-        historyTable.appendChild(row);
+    dropArea.addEventListener("drop", (event) => {
+        event.preventDefault();
+        dropArea.classList.remove("drag-over");
+
+        const files = event.dataTransfer.files;
+        if (files.length > 0) {
+            document.getElementById("webpFileInput").files = files;
+            showUploadSuccess();
+        }
     });
 });

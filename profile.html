@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Profile</title>
+    <style>
+
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -21,7 +24,6 @@
             </ul>
         </div>
     </nav>
-
     <div class="profile">
         <div class="profile-container">
             <a href="index.html" class="underline"><i class="fa-solid fa-arrow-left"></i> Kembali ke home</a>
@@ -45,16 +47,38 @@
                         <th>File Name</th>
                         <th>Date</th>
                     </tr>
-                        <tbody id="conversionHistoryList">
-                            <script src="history.js"></script>
-                        </tbody>
-                    </table>          
-                <br>
+                    <tbody id="conversionHistoryList">
+                        <script src="history.js"></script>
+                    </tbody>
+                </table>          
                 <br>
                 <button id="lo" onclick="hapusRiwayat()">Hapus Riwayat</button>
-            </div>            
+            </div>
+            <br>
+            <section class="comment-section">
+                <h2>Komen dan Rating</h2><br>
+                <form id="commentForm">
+                    <h4>Rating: </h4>
+                    <div class="rating">
+                        <input value="5" name="rating" id="star5" type="radio">
+                        <label for="star5"></label>
+                        <input value="4" name="rating" id="star4" type="radio">
+                        <label for="star4"></label>
+                        <input value="3" name="rating" id="star3" type="radio">
+                        <label for="star3"></label>
+                        <input value="2" name="rating" id="star2" type="radio">
+                        <label for="star2"></label>
+                        <input value="1" name="rating" id="star1" type="radio">
+                        <label for="star1"></label>
+                    </div>
+                    <h4>Komentar:</h4>
+                    <textarea id="comment" placeholder="Tulis komentar" required></textarea>
+                    <button id="lo" type="submit">Kirim Komentar</button>
+                </form>
+            </section>
         </div>
     </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const nama = localStorage.getItem("nama");
@@ -72,7 +96,6 @@
             document.getElementById("profileUsername").textContent = username;
             document.getElementById("profileEmail").textContent = email;
             document.getElementById("profilePassword").setAttribute("data-password", password);
-
             document.getElementById("profilePassword").textContent = "●".repeat(password.length);
             document.getElementById("profileTanggalLahir").textContent = tanggalLahir;
         });
@@ -108,6 +131,27 @@
                 window.location.href = "login.html";
             }
         }
+
+        document.getElementById('commentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            const username = localStorage.getItem('username');
+            const rating = document.querySelector('input[name="rating"]:checked').value; 
+            const comment = document.getElementById('comment').value;
+    
+            const newComment = {
+                username,
+                rating,
+                comment
+            };
+    
+            let comments = JSON.parse(localStorage.getItem('comments')) || [];
+            comments.push(newComment);
+            localStorage.setItem('comments', JSON.stringify(comments));
+    
+            alert('Komentar berhasil ditambahkan!');
+            document.getElementById('commentForm').reset();
+        });
     </script>
 </body>
 </html>

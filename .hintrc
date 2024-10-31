@@ -8,6 +8,7 @@
     "compat-api/css": "off",
     "axe/name-role-value": "off",
     "button-type": "off",
-    "axe/parsing": "off"
+    "axe/parsing": "off",
+    "axe/forms": "off"
   }
 }

@@ -47,6 +47,22 @@ function convertIcoToPng() {
     reader.readAsDataURL(file);
 }
 
+function handleDragOver(event) {
+    event.preventDefault();
+    event.dataTransfer.dropEffect = "copy";
+}
+
+function handleDrop(event) {
+    event.preventDefault();
+    const fileInput = document.getElementById("icoFileInput");
+    const files = event.dataTransfer.files;
+
+    if (files.length > 0) {
+        fileInput.files = files;
+        showUploadSuccess();
+    }
+}
+
 function addToHistory(fileName) {
     let history = JSON.parse(localStorage.getItem('conversionHistory')) || [];
 
@@ -60,7 +76,7 @@ function addToHistory(fileName) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    const historyTable = document.querySelector(".history");
+    const historyTableBody = document.querySelector(".history tbody");
     let history = JSON.parse(localStorage.getItem("conversionHistory")) || [];
 
     history.forEach((entry, index) => {
@@ -76,6 +92,6 @@ document.addEventListener("DOMContentLoaded", function() {
         row.appendChild(cellIndex);
         row.appendChild(cellFile);
         row.appendChild(cellDate);
-        historyTable.appendChild(row);
+        historyTableBody.appendChild(row);
     });
 });

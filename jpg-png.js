@@ -58,6 +58,23 @@ function addToHistory(fileName) {
     localStorage.setItem('conversionHistory', JSON.stringify(history));
 }
 
+function handleDrop(event) {
+    event.preventDefault();
+    const fileInput = document.getElementById("jpgFileInput");
+    const files = event.dataTransfer.files;
+    if (files.length > 0) {
+        fileInput.files = files;
+        showUploadSuccess();
+    }
+}
+
+function handleDragOver(event) {
+    event.preventDefault();
+}
+
+document.getElementById("drop-area").addEventListener("dragover", handleDragOver);
+document.getElementById("drop-area").addEventListener("drop", handleDrop);
+
 document.addEventListener("DOMContentLoaded", function() {
     const historyTable = document.querySelector(".history");
     const history = JSON.parse(localStorage.getItem("conversionHistory")) || [];
