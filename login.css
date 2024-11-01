@@ -10,6 +10,7 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #fff;
+    color: #4b4b4b;
 }
 
 .login {
@@ -27,7 +28,7 @@ body {
     flex-direction: column;
     justify-content: center;
     padding: 40px;
-    background-color: rgb(245, 222, 178);
+    background-color: #7289da;
 }
 
 h1 {
@@ -48,12 +49,12 @@ button {
     transition: ease-out 0.5s;
     border: 2px solid black;
     border-radius: 10px;
-    box-shadow: inset 0 0 0 0 wheat;
+    box-shadow: inset 0 0 0 0 #7289da;
 }
 
 button:hover {
     color: white;
-    box-shadow: inset 0 -100px 0 0 rgb(148, 129, 94);
+    box-shadow: inset 0 -100px 0 0 #3a4878;
 }
 
 button:active {

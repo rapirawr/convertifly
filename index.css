@@ -53,7 +53,7 @@ p,
     flex-wrap: wrap;
 }
 
-.converter-option {
+.card {
     background: #2c2f33;
     padding: 15px;
     border-radius: 6px;
@@ -221,7 +221,7 @@ i {
 .label-ai {
     position: absolute;
     top: 5px; 
-    right: 60px; /* Jarak dari sisi kanan untuk label AI */
+    right: 10px; 
     background-color: #e4c422; 
     color: #333; 
     padding: 5px 10px; 
@@ -250,7 +250,16 @@ i {
     border-radius: 5px;
     font-size: 0.8em;
 }
-
+.label-eror {
+    position: absolute;
+    top: 5px; 
+    right: 5px;
+    background-color: red; 
+    color: #333; 
+    padding: 5px 10px; 
+    border-radius: 5px;
+    font-size: 0.8em;
+}
 
 .label-new {
     position: absolute;
@@ -263,30 +272,3 @@ i {
     font-size: 0.8em;
 }
 
-.comment-box {
-    max-height: 300px;
-    overflow-y: auto;
-    padding: 10px;
-    border: 1px solid #7289da;
-    border-radius: 16px;
-    margin-top: 20px;
-}
-
-.comment {
-    background: rgb(44, 47, 51);
-    padding: 10px;
-    border-radius: 16px;
-    margin-bottom: 10px;
-    transition: background 0.3s;
-}
-
-.comment:hover {
-    background: #1b1a1a;
-    cursor: pointer;
-}
-
-.loading {
-    text-align: center;
-    margin: 20px 0;
-    display: none;
-}
