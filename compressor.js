@@ -1,20 +1,20 @@
 let originalFileName = "";
 
 function showUploadSuccess() {
-    const fileInput = document.getElementById("tiffFileInput");
+    const fileInput = document.getElementById("imageFileInput");
     const fileName = fileInput.files[0].name;
     const fileLabel = document.querySelector(".file-label");
     fileLabel.textContent = `${fileName}`;
     originalFileName = fileName.replace(/\.[^/.]+$/, "");
 }
 
-function convertTiffToPng() {
-    const fileInput = document.getElementById("tiffFileInput");
+function compressImage() {
+    const fileInput = document.getElementById("imageFileInput");
     const downloadLink = document.getElementById("downloadLink");
-    const downloadPng = document.getElementById("downloadPng");
+    const downloadCompressed = document.getElementById("downloadCompressed");
 
     if (fileInput.files.length === 0) {
-        alert("Please select a TIFF file first.");
+        alert("Silakan pilih file gambar terlebih dahulu.");
         return;
     }
 
@@ -34,11 +34,11 @@ function convertTiffToPng() {
 
             canvas.toBlob(function (blob) {
                 const url = URL.createObjectURL(blob);
-                downloadPng.href = url;
-                downloadPng.download = `${originalFileName}.png`;
+                downloadCompressed.href = url;
+                downloadCompressed.download = `${originalFileName}_compressed.png`;
                 downloadLink.style.display = "block";
 
-                addToHistory(`${originalFileName}.tiff -> ${originalFileName}.png`);
+                addToHistory(`${originalFileName}_compressed.png`);
             }, "image/png");
         };
     };
@@ -57,23 +57,6 @@ function addToHistory(fileName) {
     history.push(conversionEntry);
     localStorage.setItem('conversionHistory', JSON.stringify(history));
 }
-
-function handleDrop(event) {
-    event.preventDefault();
-    const fileInput = document.getElementById("tiffFileInput");
-    const files = event.dataTransfer.files;
-    if (files.length > 0) {
-        fileInput.files = files;
-        showUploadSuccess();
-    }
-}
-
-function handleDragOver(event) {
-    event.preventDefault();
-}
-
-document.getElementById("drop-area").addEventListener("dragover", handleDragOver);
-document.getElementById("drop-area").addEventListener("drop", handleDrop);
 
 document.addEventListener("DOMContentLoaded", function() {
     const historyTable = document.querySelector(".history");

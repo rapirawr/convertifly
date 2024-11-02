@@ -52,7 +52,7 @@ function addToHistory(fileName) {
     const conversionEntry = {
         fileName: fileName,
         date: new Date().toLocaleString()
-    };
+    };  
 
     history.push(conversionEntry);
     localStorage.setItem('conversionHistory', JSON.stringify(history));

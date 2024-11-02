@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kompresor Gambar</title>
+    <link rel="stylesheet" href="converter.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="converter-page">
+        <a href="index.html" class="underline"><i class="fa-solid fa-arrow-left"></i> Kembali ke beranda</a>
+        <h1>Kompresor Gambar</h1>
+        <p>Pilih file gambar untuk dikompres.</p>
+
+        <form id="imageCompressorForm">
+            <div class="file" onclick="document.getElementById('imageFileInput').click();" ondrop="handleDrop(event)" ondragover="handleDragOver(event)">
+                <i id="f" class="fa-regular fa-file"></i><br>
+                <span class="file-label">Choose File or Drop Here</span>
+                <input type="file" id="imageFileInput" accept="image/*" style="display: none;" onchange="showUploadSuccess()">
+                <p id="uploadSuccessMsg" style="display: none; color: green;"></p>
+            </div>
+            <button type="button" onclick="compressImage()">Kompres</button>
+        </form>
+
+        <div class="dwn" id="downloadLink" style="display: none;">
+            <p>Kompressi berhasil! Klik tautan di bawah untuk mendownload file kamu</p>
+            <a id="downloadCompressed" href="#" download="gambar_terkompres.png">Download Gambar Terkompres</a>
+        </div>
+    </div>
+
+    <script src="compressor.js"></script>
+</body>
+</html>
