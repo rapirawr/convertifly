@@ -1,7 +1,6 @@
 function saveConversionHistory(fileName) {
     const history = JSON.parse(localStorage.getItem("conversionHistory")) || [];
     const currentDate = new Date().toLocaleDateString();
-    console.log("Tanggal yang disimpan:", currentDate);
     history.push({ fileName: fileName, date: currentDate });
     localStorage.setItem("conversionHistory", JSON.stringify(history));
 }
@@ -39,7 +38,6 @@ function hapusRiwayat() {
     if (confirm("Apakah Anda yakin ingin menghapus semua riwayat konversi?")) {
         localStorage.removeItem("conversionHistory");
         displayConversionHistory();
-        console.log("Riwayat konversi telah dihapus.");
     }
 }
 

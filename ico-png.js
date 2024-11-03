@@ -1,12 +1,29 @@
 let originalFileName = "";
 
+
 function showUploadSuccess() {
     const fileInput = document.getElementById("icoFileInput");
-    const fileName = fileInput.files[0].name;
+    const file = fileInput.files[0];
+    const fileName = file.name;
+    const fileSize = file.size;
+    let displaySize;
+
+    if (fileSize < 1024) {
+        displaySize = `${fileSize} B`; 
+    } else if (fileSize < 1048576) {
+        displaySize = `${(fileSize / 1024).toFixed(2)} KB`; 
+    } else if (fileSize < 1073741824) {
+        displaySize = `${(fileSize / 1048576).toFixed(2)} MB`;
+    } else {
+        displaySize = `${(fileSize / 1073741824).toFixed(2)} GB`; 
+    }
+
     const fileLabel = document.querySelector(".file-label");
-    fileLabel.textContent = fileName;
+    fileLabel.textContent = `${fileName} (${displaySize})`;
     originalFileName = fileName.replace(/\.[^/.]+$/, "");
 }
+
+
 
 function convertIcoToPng() {
     const fileInput = document.getElementById("icoFileInput");

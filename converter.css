@@ -90,42 +90,6 @@ button:active {
     background-color: #3f4e7f;
 }
 
-.dwn {
-    margin-top: 20px;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-.dwn p {
-    color: #4caf50;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.dwn a {
-    color: #7289da;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    transition: color 0.3s;
-}
-
-.dwn a:hover {
-    color: #5b6eae;
-    text-decoration: underline;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 .file {
     text-align: center;
     margin: 20px 0;

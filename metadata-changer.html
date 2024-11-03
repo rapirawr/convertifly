@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metadata Changer</title>
+    <link rel="stylesheet" href="metadata.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="metadata-container">
+        <a href="index.html" class="underline"><i class="fa-solid fa-arrow-left"></i> Kembali ke home</a>
+        <h1>Metadata Changer</h1>
+        <p>Select an image file to change metadata.</p>
+        <p><i class="fas fa-triangle-exclamation"></i> Will not display in the history table</p>
+        <form id="metadataForm" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)" class="metadata-form">
+            <div class="file" onclick="document.getElementById('metadataFileInput').click();">
+                <i id="f" class="fa-regular fa-file"></i><br>
+                <span class="file-label">Choose File or Drop Here</span>
+                <input type="file" id="metadataFileInput" accept="image/*" style="display: none;" onchange="showUploadSuccess()">
+                <p id="uploadSuccessMsg" style="display: none; color: green;"></p>
+            </div>
+            <div id="metadataInputs" style="display: none;">
+                <label for="title">Name:</label>
+                <input type="text" id="title" name="title" placeholder="Enter name for image"><br>
+                <div class="metadata-inputs">
+                    <label for="bytes">Bytes:</label>
+                    <input type="number" id="bytes" name="bytes" placeholder="Enter bytes for image" min="0">
+                    <select id="byteUnits">
+                        <option value="kb">KB</option>
+                        <option value="mb">MB</option>
+                        <option value="gb">GB</option>
+                        <option value="tb">TB</option>
+                    </select>
+                </div>
+            </div>
+            <button type="button" onclick="changeMetadata()">Apply Metadata</button>
+            <p id="successMessage" style="display: none;">Metadata applied successfully!</p>
+            <a id="downloadUpdatedFile" style="display: none;">Download Updated File</a>
+        </form>
+    </div>
+    <script src="metadata.js"></script>
+</body>
+</html>

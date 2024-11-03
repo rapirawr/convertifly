@@ -1,8 +1,8 @@
 label 
-<span class="label-new">New</span>
-<span class="label-ai">AI</span>
-<span class="label-vip">Vip/span>
-<span class="label-beta">Beta</span>
+<span class="label-new"></span>
+<span class="label-ai"></span>
+<span class="label-vip">/span>
+<span class="label-beta"></span>
 
 
 font awesome
