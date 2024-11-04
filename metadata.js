@@ -33,6 +33,11 @@ function changeMetadata() {
     const fileInput = document.getElementById("metadataFileInput");
     const file = fileInput.files[0];
 
+    if (fileInput.files.length === 0) {
+        alert("Please select an image file first.");
+        return;
+    }
+
     const reader = new FileReader();
     reader.onload = function(event) {
         const image = new Image();

@@ -107,11 +107,47 @@
             </div>
 
             <div class="card">
-                <h2>Metadata Changer</h2>
+                <h2>
+                    Metadata Changer 
+                    <i  class="fa-regular fa-circle-question" style="font-size: 20px; cursor: pointer;" onclick="openModal()"></i>
+                </h2>
                 <span class="label-new"></span>
                 <p>Tools untuk mengubah metadata file</p>
                 <button id="b" onclick="location.href='metadata-changer.html'">Gunakan Sekarang</button>
             </div>
+            
+            <div id="metadataModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h3><i class="fas fa-triangle-exclamation" style="color: #b3b3b3;"></i> Peringatan</h3>
+                    <p>Harap diperhatikan bahwa mengubah metadata file dapat mempengaruhi cara file tersebut berfungsi atau ditampilkan. Pastikan untuk membuat salinan file asli sebelum melakukan perubahan.</p>
+                    <h3>Konsekuensi memakai tools ini</h3>
+                    <ol>
+                        <li>Dapat menyebabkan perangkat mengalami lag jika perangkat anda low-end</li>
+                        <li>Dapat menyebabkan ram perangkat anda penuh</li>
+                    </ol>
+                    <h5>Gunakan alat ini dengan hati-hati dan hanya pada file yang Anda miliki atau yang diizinkan untuk dimodifikasi.</h5>
+                </div>
+            </div>
+            <script>
+function openModal() {
+    const modal = document.getElementById("metadataModal");
+    modal.classList.add("show");
+}
+
+function closeModal() {
+    const modal = document.getElementById("metadataModal");
+    modal.classList.remove("show");
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById("metadataModal");
+    if (event.target === modal) {
+        closeModal();
+    }
+}
+
+            </script>
         </div>
     </section>
     
@@ -175,7 +211,7 @@
                 <h3>Github</h3>
                 <i class="fab fa-github"></i>
                 <p>Follow Developer di Github.</p>
-                <button id="b" onclick="window.open('https://github.com/rapirawr')">Github</button>
+                <button id="b" onclick="window.open('https://github.com/rapikeren')">GitHub</button>
             </div>
         </div>
     </section>

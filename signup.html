@@ -13,7 +13,7 @@
             <form id="signupForm">
                 <div>
                     <label for="nama">Nama</label>
-                    <input type="atext" name="nama" id="nama" placeholder="Masukan nama" required>
+                    <input type="text" name="nama" id="nama" placeholder="Masukan nama" required>
                 </div>
                 <div>
                     <label for="username">Username</label>
@@ -27,16 +27,12 @@
                     <label for="password">Password</label>
                     <input type="password" name="password" id="signupPassword" placeholder="Masukan password" required>
                 </div>
-                <div>
-                    <label for="tanggal_lahir">Tanggal Lahir</label>
-                    <input type="date" name="tanggal_lahir" id="tanggal_lahir" required>
-                </div>
                 <button type="submit">Sign Up</button>
             </form>
             <p>Sudah punya akun? <a href="login.html">Login</a></p>
         </div>
         <div class="image-half">
-            <img src="imagebg.jpeg" alt="Background Image" id="background-image">
+            <img src="Image/Download premium vector of Blue fluid fluid patterned mobile phone wallpaper vector by Kappy about iphone wallpaper, mobile wallpaper, blue wallpaper iphone, blue, and marble 1219759.jpeg" alt="Background Image" id="background-image">
             <div class="shadow"></div>
         </div>
     </div>
@@ -48,13 +44,11 @@
             const username = document.getElementById("signupUsername").value;
             const password = document.getElementById("signupPassword").value;
             const email = document.getElementById("email").value;
-            const tanggalLahir = document.getElementById("tanggal_lahir").value;
 
             localStorage.setItem("nama", nama);
             localStorage.setItem("username", username);
             localStorage.setItem("password", password);
             localStorage.setItem("email", email);
-            localStorage.setItem("tanggal_lahir", tanggalLahir);
 
             alert("Akun berhasil dibuat! Silakan login.");
             window.location.href = "login.html";

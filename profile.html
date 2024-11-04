@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Profile</title>
-    <style>
-
-    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -34,7 +31,6 @@
                     <p><strong>Username:</strong> <span id="profileUsername"></span></p>
                     <p><strong>Email:</strong> <span id="profileEmail"></span></p>
                     <p><strong>Password:</strong> <span id="profilePassword">●●●●</span> <i id="togglePassword" class="fas fa-eye" onclick="togglePasswordVisibility()"></i></p>
-                    <p><strong>Tanggal Lahir:</strong> <span id="profileTanggalLahir"></span></p>
                     <button id="lo" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
                     <button id="del" onclick="hapusAkun()"><i class="fas fa-trash"></i> Hapus Akun</button> 
                 </div>               
@@ -75,7 +71,6 @@
             document.getElementById("profileEmail").textContent = email;
             document.getElementById("profilePassword").setAttribute("data-password", password);
             document.getElementById("profilePassword").textContent = "●".repeat(password.length);
-            document.getElementById("profileTanggalLahir").textContent = tanggalLahir;
         });
 
         function togglePasswordVisibility() {
