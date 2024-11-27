@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,24 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.min.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js').then((registration) => {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, (error) => {
+                    console.log('ServiceWorker registration failed: ', error);
+                });
+            });
+        }
+    </script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="navbar-container">
@@ -22,21 +39,19 @@
             </ul>
         </div>
     </nav>
-    
+
     <section class="home">
-        <h1>Selamat Datang di <span id="c">C</span>onvertifly</h1>
+        <h1>Selamat Datang di
+            <span class="wrapper">
+                <svg>
+                    <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+                        Convertifly
+                    </text>
+                </svg>
+            </span>
+        </h1>
+
         <p>Konversi file Anda dengan mudah dan cepat menggunakan konverter online kami!</p>
-        <style>
-            #c {
-                --text-stroke-color: rgba(255, 255, 255, 0.6);
-                --fs-size: 1.5em;
-                letter-spacing: 3px;
-                font-size: var(--fs-size);
-                font-family: "Arial";
-                color: transparent;
-                -webkit-text-stroke: 1px var(--text-stroke-color);
-            }
-        </style>
 
         <div class="container">
             <div class="card">
@@ -84,7 +99,7 @@
                 <h2>BMP to JPG</h2>
                 <p>Konversi gambar format HEIC ke format JPG agar lebih mudah diakses.</p>
                 <button id="b" onclick="location.href='bmp-to-jpg.html'">Konversi Sekarang</button>
-            </div>                              
+            </div>
 
         </div>
     </section>
@@ -99,7 +114,7 @@
                 <br>
                 <button id="b" onclick="location.href='remove-background.html'">Gunakan Sekarang</button>
             </div>
-            
+
             <div class="card">
                 <h2>Kompresor Image</h2>
                 <p>Tools untuk kompres agar ukuranya lebih kecil</p>
@@ -108,49 +123,52 @@
 
             <div class="card">
                 <h2>
-                    Metadata Changer 
-                    <i  class="fa-regular fa-circle-question" style="font-size: 20px; cursor: pointer;" onclick="openModal()"></i>
+                    Metadata Changer
+                    <i class="fa-regular fa-circle-question" style="font-size: 20px; cursor: pointer;"
+                        onclick="openModal()"></i>
                 </h2>
                 <span class="label-new"></span>
                 <p>Tools untuk mengubah metadata file</p>
                 <button id="b" onclick="location.href='metadata-changer.html'">Gunakan Sekarang</button>
             </div>
-            
+
             <div id="metadataModal" class="modal">
                 <div class="modal-content">
                     <span class="close" onclick="closeModal()">&times;</span>
                     <h3><i class="fas fa-triangle-exclamation" style="color: #b3b3b3;"></i> Peringatan</h3>
-                    <p>Harap diperhatikan bahwa mengubah metadata file dapat mempengaruhi cara file tersebut berfungsi atau ditampilkan. Pastikan untuk membuat salinan file asli sebelum melakukan perubahan.</p>
+                    <p>Harap diperhatikan bahwa mengubah metadata file dapat mempengaruhi cara file tersebut berfungsi
+                        atau ditampilkan. Pastikan untuk membuat salinan file asli sebelum melakukan perubahan.</p>
                     <h3>Konsekuensi memakai tools ini</h3>
                     <ol>
                         <li>Dapat menyebabkan perangkat mengalami lag jika perangkat anda low-end</li>
                         <li>Dapat menyebabkan ram perangkat anda penuh</li>
                     </ol>
-                    <h5>Gunakan alat ini dengan hati-hati dan hanya pada file yang Anda miliki atau yang diizinkan untuk dimodifikasi.</h5>
+                    <h5>Gunakan alat ini dengan hati-hati dan hanya pada file yang Anda miliki atau yang diizinkan untuk
+                        dimodifikasi.</h5>
                 </div>
             </div>
             <script>
-function openModal() {
-    const modal = document.getElementById("metadataModal");
-    modal.classList.add("show");
-}
+                function openModal() {
+                    const modal = document.getElementById("metadataModal");
+                    modal.classList.add("show");
+                }
 
-function closeModal() {
-    const modal = document.getElementById("metadataModal");
-    modal.classList.remove("show");
-}
+                function closeModal() {
+                    const modal = document.getElementById("metadataModal");
+                    modal.classList.remove("show");
+                }
 
-window.onclick = function(event) {
-    const modal = document.getElementById("metadataModal");
-    if (event.target === modal) {
-        closeModal();
-    }
-}
+                window.onclick = function (event) {
+                    const modal = document.getElementById("metadataModal");
+                    if (event.target === modal) {
+                        closeModal();
+                    }
+                }
 
             </script>
         </div>
     </section>
-    
+
     <section class="benefits">
         <h2>Manfaat Menggunakan Convertifly</h2>
         <div class="container">
@@ -160,20 +178,20 @@ window.onclick = function(event) {
                 <i class="fas fa-fast-forward"></i>
                 <p>Konversi file dengan waktu yang singkat dan efisien.</p>
             </div>
-    
+
             <div class="card">
                 <h3>Mendukung Berbagai Format</h3>
                 <i class="fas fa-file-alt"></i>
                 <p>Kompatibel dengan berbagai jenis file untuk memenuhi kebutuhan Anda.</p>
             </div>
-    
+
             <div class="card">
                 <h3>Tidak Perlu Instalasi</h3>
                 <br>
                 <i class="fas fa-desktop"></i>
                 <p>Gunakan langsung dari browser Anda tanpa instalasi tambahan.</p>
             </div>
-    
+
             <div class="card">
                 <h3>Privasi Terjamin</h3>
                 <br>
@@ -181,7 +199,7 @@ window.onclick = function(event) {
                 <i class="fas fa-lock"></i>
                 <p>Data Anda aman dan tidak disimpan setelah proses konversi selesai.</p>
             </div>
-    
+
             <div class="card">
                 <h3>Akses Tanpa Batas</h3>
                 <br>
@@ -190,8 +208,8 @@ window.onclick = function(event) {
             </div>
         </div>
     </section>
-    
-        
+
+
     <section class="support">
         <h2>Support Developer</h2>
         <div class="container">
@@ -216,4 +234,5 @@ window.onclick = function(event) {
         </div>
     </section>
 </body>
+
 </html>

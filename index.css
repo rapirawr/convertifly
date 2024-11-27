@@ -321,3 +321,39 @@ i {
     text-decoration: none;
     cursor: pointer;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&display=swap");
+
+svg {
+    font-family: "Shippori Antique B1", sans-serif;
+    width: auto; 
+    height: 1em; 
+    display: inline-block;
+    vertical-align: middle;
+}
+
+svg text {
+    animation: stroke 5s infinite alternate;
+    stroke-width: 2;
+    stroke: #E0E0E0;
+    font-size: 1rm;
+}
+
+@keyframes stroke {
+    0% {
+        fill: rgba(114,137,218,0); stroke: rgba(224,224,224,1);
+        stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
+    }
+    70% {fill: rgba(114,137,218,0); stroke: rgba(224,224,224,1); }
+    80% {fill: rgba(114,137,218,0); stroke: rgba(224,224,224,1); stroke-width: 3; }
+    100% {
+        fill: rgba(114,137,218,1); stroke: rgba(224,224,224,0);
+        stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
+    }
+}
+
+.wrapper {
+    background-color: transparent;
+    display: inline-block; 
+}
+
